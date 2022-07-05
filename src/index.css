@@ -2,7 +2,8 @@
   font-family: Helvetica,Arial, sans-serif;
 }
 body{
-  padding: 60px;
+  box-sizing: border-box;
+  background-color: #d2d5b0;
 }
 
 input{
@@ -11,19 +12,14 @@ input{
   color: grey;
 }
 
-.card-grid{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
 
-.card{
-  align-content: center;
-  border: 1px solid grey;
+.cardDetails{
   border-radius: 6px;
   margin-bottom: 10px;
-  margin-right: 10px;
   overflow: hidden;
+  box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.4);
+  -moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.4);
 }
 .card p{
   padding: 5px;

@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
+import Swal from 'sweetalert2';
 
 
 export const AddCategory = ( {setCategories} ) => {
@@ -11,7 +12,18 @@ export const AddCategory = ( {setCategories} ) => {
   const handleSubmit= (e)=>{
     e.preventDefault();
     if(inputValue.trim().length>2){
-      setCategories(cats => [inputValue, ...cats]);
+      setCategories(value => {
+        console.log(value.includes(inputValue.trim()));
+        if(value.includes(inputValue.trim())){
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Valor repetido, intente una nueva palabra!',
+          });
+          return [...value];
+        }
+        return [inputValue, ...value];
+      });
       setInputValue('');
     }
   };
@@ -22,6 +34,7 @@ export const AddCategory = ( {setCategories} ) => {
         value={inputValue}
         onChange={handleInputChange}
         onSubmit={handleSubmit}
+        className='form-control'
       />
     </form>
   );
